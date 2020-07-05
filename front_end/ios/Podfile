@@ -1,0 +1,84 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+
+#pod 'DCTAuth', :git => 'https://github.com/danielctull/DCTAuth.git'
+pod 'GoogleSignIn', '~> 4.4.0'
+#pod 'Firebase/Core'
+#pod 'Firebase/Firestore'
+
+target 'mashtub' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  #use_frameworks!
+
+  # Pods for mashtub
+
+  # Your 'node_modules' directory is probably in the root of your project,
+  # but if not, adjust the `:path` accordingly
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'CxxBridge', # Include this for RN >= 0.47
+    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket', # Needed for debugging
+    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
+    'RCTImage'
+    # Add any other subspecs you want to use in your project
+  ]
+
+  # Explicitly include Yoga if you are using RN >= 0.42.0
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+  # Third party deps podspec link
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  pod 'DCTAuth', :git => 'https://github.com/danielctull/DCTAuth.git'
+  pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
+  pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
+    'TextDetector',
+    'FaceDetectorMLKit',
+    'BarcodeDetectorMLKit'
+  ]
+  #pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
+  
+  target 'mashtub-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+    #pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+
+   # pod 'RNSound', :path => '../node_modules/react-native-sound'
+
+  end
+
+  target 'mashtubTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == "React"
+      target.remove_from_project
+    end
+  end
+end
+
+
+#target 'mashtub-tvOS' do
+ # # Comment the next line if you don't want to use dynamic frameworks
+ # use_frameworks!
+
+  # Pods for mashtub-tvOS
+
+ # target 'mashtub-tvOSTests' do
+ #   inherit! :search_paths
+ #   # Pods for testing
+#  end
+
+#end
