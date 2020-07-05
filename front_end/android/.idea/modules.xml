@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/@react-native-community/async-storage/android/@react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/../node_modules/@react-native-community/async-storage/android/@react-native-community_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/@react-native-community/cameraroll/android/@react-native-community_cameraroll.iml" filepath="$PROJECT_DIR$/../node_modules/@react-native-community/cameraroll/android/@react-native-community_cameraroll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mashtub.iml" filepath="$PROJECT_DIR$/mashtub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-audio-recorder-player/android/react-native-audio-recorder-player.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-audio-recorder-player/android/react-native-audio-recorder-player.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-cameraroll/android/react-native-cameraroll.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-cameraroll/android/react-native-cameraroll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-events/android/react-native-events.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-events/android/react-native-events.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-fetch-blob/android/react-native-fetch-blob.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-fetch-blob/android/react-native-fetch-blob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-fs/android/react-native-fs.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-fs/android/react-native-fs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android/react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android/react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-google-signin/android/react-native-google-signin.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-google-signin/android/react-native-google-signin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-image-picker/android/react-native-image-picker.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-image-picker/android/react-native-image-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-keep-awake/android/react-native-keep-awake.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-keep-awake/android/react-native-keep-awake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-linear-gradient/android/react-native-linear-gradient.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-linear-gradient/android/react-native-linear-gradient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-oauth/android/react-native-oauth.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-oauth/android/react-native-oauth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-orientation/android/react-native-orientation.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-orientation/android/react-native-orientation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-play-audio/android/react-native-play-audio.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-play-audio/android/react-native-play-audio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-simple-download-manager/android/react-native-simple-download-manager.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-simple-download-manager/android/react-native-simple-download-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-sound/android/react-native-sound.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-sound/android/react-native-sound.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-sound-player/android/react-native-sound-player.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-sound-player/android/react-native-sound-player.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-video/android-exoplayer/react-native-video.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-video/android-exoplayer/react-native-video.iml" />
+    </modules>
+  </component>
+</project>
