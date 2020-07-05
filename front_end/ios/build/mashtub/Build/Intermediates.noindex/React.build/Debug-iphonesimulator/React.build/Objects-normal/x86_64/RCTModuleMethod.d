@@ -1,0 +1,31 @@
+dependencies: \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTModuleMethod.mm \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTModuleMethod.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTBridgeMethod.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTNullability.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/yoga/YGValue.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTCxxConvert.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTManagedPointer.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Base/RCTParserUtils.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/React/Profiler/RCTProfile.h

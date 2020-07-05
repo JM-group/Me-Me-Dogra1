@@ -1,0 +1,27 @@
+dependencies: \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/Libraries/CameraRoll/RCTCameraRollManager.m \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/Libraries/CameraRoll/RCTCameraRollManager.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/yoga/YGValue.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTImageLoader.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTResizeMode.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTURLRequestHandler.h \
+  /Users/sahithyarajith/Desktop/mashdub/ios/build/mashtub/Build/Products/Debug-iphonesimulator/include/React/RCTURLRequestDelegate.h \
+  /Users/sahithyarajith/Desktop/mashdub/node_modules/react-native/Libraries/CameraRoll/RCTAssetsLibraryRequestHandler.h
