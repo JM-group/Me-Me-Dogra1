@@ -82,7 +82,6 @@ import {
       this.setState({type: 'front'});
     }
     renderEditingScreen(video_url) {
-      console.log('inside render editing screen going on hereee');
       clearInterval(this.state.timer);
       //alert('inside render editing screeen here ==', video_url);
       this.props.navigation.navigate('EditorScreen', { 'video_url': video_url, 'loaded': true, 'from': 'home'});
@@ -186,15 +185,8 @@ import {
                         });
             }, 1000);
             this.setState({ timer });
-            console.log('12345123451234512345123451234512345123451234512345123451234512345');
             recorder_data = await promise;
            // recorder_data = JSON.stringify(data);
-            console.log(recorder_data);
-            console.log(recorder_data['uri']);
-            console.log(recorder_data["uri"]);
-//            console.log(data["uri"]);
-            //alert(recorder_data);
-            console.log('6789678967896789678967896789678967896789678967896789678967896789'); 
             that.renderEditingScreen(recorder_data["uri"]);
             this.setState({ isRecording: false, recordingProgressStatus: false });           
           } 
@@ -205,8 +197,6 @@ import {
     };
   
     stopRecording() {
-     // console.log(this.camera);
-      console.log('innside before if condition stop recording value hereeeee');
       this.camera.stopRecording();
       //that.renderEditingScreen(recorder_data["uri"]);
       this.setState({ isRecording: false, recordingProgressStatus: false });

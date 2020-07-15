@@ -47,22 +47,11 @@
         }  
       }
     
-    componentWillMount() {
-    //  console.log('inside component will mount here');
-    //  console.log(this.state);
-    //  console.log(this.state.muted);
-
-    //  console.log(firebase.auth());
-    //  console.log(firebase.auth().currentUser);
-      
+    componentWillMount() {      
       this.setState(state => { return {muted: true}});
-    //  console.log(this.state.muted);
     }  
 
     componentDidMount() {
-    //  console.log("inside componedfgdfgdfgdfgdfgdfgdfnt did mount heree going onnnn //////////////////////// gettttt");
-    //  console.log('component did mount here');
-    //  console.log(this.state.muted);
       var that = this;
       //AppState.addEventListener('change', this._handleAppStateChange);
     /*  setTimeout(function() {
@@ -87,25 +76,15 @@
     }
 
     _handleAppStateChange = (nextAppState) => {
-    //  console.log('inside handle app state changeeeeeeeeee');
-    //  console.log(nextAppState);
-    //  console.log(this.state.appState);
       if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
-    //    console.log('App has come to the foreground!')
         this.setState({appState: nextAppState});
       } else {
         this.setState({appState: nextAppState, paused: true});
-    //    console.log('inside else bloack in handle app state change');
-
       }
     }
 
     componentDidUpdate() {
-    //  console.log('inside did updatte ==', this.state.startAudioRecord);
-    //  console.log(this.state.muted);
       if (this.state.videoEnded && this.state.paused && !this.state.recording) {
-    //    console.log('inside 11111');
-        //alert('inside 111111111');
         this.player.seek(0);
         this.setState({videoEnded: false, spinner: false});
       } /*else if (this.state.playAudioVideo == true) {
@@ -128,9 +107,7 @@
         try {
             result = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.RECORD_AUDIO, { title:'Microphone Permission', message:'Enter the Gunbook needs access to your microphone so you can search with voice.' });
         } catch(error) {
-        //    console.error('failed getting permission, result:', result);
         }
-        //console.log('permission result:', result);
         return (result === true || result === PermissionsAndroid.RESULTS.GRANTED);
     }
     
@@ -181,10 +158,7 @@
     };
   
     handleRecordButtonTouch = (from) => {
-    //  console.log('inside record button touch here 22222222222222222222222');
-    //  console.log(this.state.recording);
       if (!this.state.recording || from == 2) {
-    //    console.log('inside recording ')
  //       alert('inside state check recording');
         this.setState(state => {
           return {
@@ -196,31 +170,21 @@
           };
         });
         this.seekVideoToBeginning(from);
-    //    console.log('function ending here handle record button touch here');  
       }
 
-  //    console.log('record button befoer seeek');
   //    this.player.seek(0);
-  //    console.log('record button after seek here ===-- --== ', videoSeekToZero);
  //     alert('before start record here'); 
     }
 
     seekVideoToBeginning = async(from) => {
       //alert('inside here seekvideo');
-  //    console.log('inside async seek video to beingiinnggg');
-  //    console.log(videoSeekToZero);
       await this.player.seek(0);
       videoSeekToZero = true;
-  //    console.log('after player seek 00 here');
       this.onStartRecord(from);
     }
 
     //onStartRecord = async () => {
     onStartRecord(from) {
-      //  console.log("inside on start record hereeeeeeee");
-      //  console.log(audioRecorderPlayer);
-        var that = this;
-      //  console.log('inside start recorder here first ==', this.state.muted);
         var that = this;
 //        if (this.state.muted) {
       //    console.log('entered muted check if condition here');
@@ -238,15 +202,10 @@
                  audioRecorderPlayer = new AudioRecorderPlayer();
                  audioRecorderPlayer.setSubscriptionDuration(0.09); // optional. Default is 0.1 
               } 
-      //        console.log('inside if check kkkkkkkk');
               result = audioRecorderPlayer.startRecorder();
-      //        console.log(result);
-      //        console.log('after recorder button started here');
               //this.player.seek(0);
 //              alert(this.state);
               if (this.state.paused) {
-               // alert('inside 1111111111111 alert true');
-                console.log('inside state check hereeeeeeeeeeeeeeeeeeee');
                 audioRecorderPlayer.addRecordBackListener((e) => {
                   this.setState({
                     recordSecs: e.current_position,
@@ -272,18 +231,12 @@
             //  this.player.seek(0);
         //      console.log('after text returning here');
           }, 50); 
-        //  console.log('after function ended hereeeeeeeee');   
-//        }  
-        //console.log("///////////////////////////////////////////////////////////////////////////");
-        //console.log(result);
     }
 
     handleProgressPress = e => {
       const position = e.nativeEvent.locationX;
       const progress = (position / 250) * this.state.duration;
       const isPlaying = !this.state.paused;
-    //  console.log('progresss is going heree  ///////////////////////////');
-    //  console.log(progress); 
       this.player.seek(progress);
       //this.player.seek(0.0);
     };
@@ -336,7 +289,6 @@
           //  this.player.seek(0);
         } 
         //result = await audioRecorderPlayer.stopRecorder();
-        //console.log(audioRecorderPlayer);
         result = await audioRecorderPlayer.stopRecorder();
         audioRecorderPlayer.removeRecordBackListener();
         //alert('after stop recording and before play video');
@@ -467,10 +419,6 @@
           </React.Fragment>               
         );
       } else {
-      //  console.log('inside else block here going onnn');
-      //console.log("check post type val here");
-      //console.log("this.state.postType ==", this.state.postType);
-      //console.log("postType ==", postType);
       var postTypeVal = this.state.postType !== undefined ? this.state.postType : postType;
         return (
           <React.Fragment>
@@ -535,40 +483,27 @@
     }
 
     renderViewMore(onPress){
-    //  console.log("inside render view more here");
-    //  console.log(onPress);
       return(
         <Text style={{left: 5, color: 'red'}} onPress={onPress}>Read more</Text>
       )
     }
     renderViewLess(onPress){
-    //    console.log("inside render view less here lesss");
-    //    console.log(onPress);
         return(
             <Text style={{left: 5, color: 'red'}} onPress={onPress}>Read less</Text>
         )
     }
     async changePostType(val) {
-    //  console.log("inside change post type here going on ====", val);
       var token_val = await AsyncStorage.getItem('@user_auth:token')
       await axios.put('http://70.51.251.63:3000/post/type/'+token_val+'/'+postID, {
         post_type: val
       }, { crossDomain: true }).then((response) => {
-    //    console.log("inside success value hereee");
-    //    console.log(response);
         this.setState({postType: val});
       }, (error) => {
-    //    console.log("inside delete post value here");
     //    console.log(error);
       });
     } 
 
     renderDropDownRow(rowData, rowID, highlighted) {
-    //  console.log("render drop down value going on hereeee /////////////////");
-    //  console.log(rowData);
-    //  console.log(rowID);
-    //  console.log(highlighted);
-    //  console.log("((()))(()))");
       return (
         <TouchableHighlight underlayColor='cornflowerblue'>
           <View style={styles.dropdownrow}>
@@ -615,16 +550,13 @@
         this.props.navigation.navigate('AccountsMainPage');
         //this.props.navigation.pop(); 
       }, (error) => {
-    //    console.log("inside delete post value here");
     //    console.log(error);
       });
       
     }
 
     handleDeleteButtonTouch = async () => {
-    //  console.log(firebase.auth().currentUser.uid);
       var path = videoSource, currentUserID = firebase.auth().currentUser.uid;
-      //  console.log(videoIndex);
       var saved_value = '';
       try {
         saved_value = await AsyncStorage.getItem('@jm_video_urls:key');
@@ -674,8 +606,6 @@
     }
 
     sharingVideo = () => {
-    //  console.log('before sharing here going on ((((((((((((((((((((((((((');
-    //  console.log(videoSource);
       let filePath = null;
       const { config, fs } = RNFetchBlob;
       let PictureDir = fs.dirs.DocumentDir + '/MashDub.mp4';
@@ -734,9 +664,6 @@
     }
 
     renderProgressBar() {
-    //  console.log("inside render progress bar here");
-    //  console.log(this.state);
-    //  console.log("ifffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
       return (
         <View style={[styles.controls]}>
           <TouchableWithoutFeedback onPress={this.handleMainButtonTouch} disabled={!this.state.recording ? false : true}>
@@ -763,7 +690,6 @@
     }
 
     render() {
-      console.log("inside editor render here going on 1112223333333333333333333333333333333333333333333333333333");
       const { width } = Dimensions.get("window");
       const height = width * 0.5625;
       const { navigation } = this.props; 
@@ -784,13 +710,9 @@
       description = navigation.getParam('desc');
     
       var that= this;
-    //  console.log('insid render first time == ((((((())))))))', this.state.firstTime);
-    //  console.log(firebase.auth().currentUser);
       if (this.state.firstTime) {
       //  alert(this.state.muted.toString() + "dsnakdas");
       }
-    //  console.log(this.state); 
-    //  console.log('inside editorrrrrrrrrrrrrrrrrrrrrrrrrrrrrr render = ', this.state.muted);
       const playWidth = (this.state.currentPositionSec / this.state.currentDurationSec) * (Dimensions.get('window') - 56 * 12);
         return (
             <Container style={{backgroundColor: '#FFFFFF'}}>

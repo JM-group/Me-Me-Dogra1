@@ -41,8 +41,6 @@ import {
     };
 
     _renderRow(rowData) {
-      console.log('inside _renderrow');
-      console.log(rowData);
       return(
         <TouchableHighlight
               onPress={() => this.props.navigation.navigate('EditorScreen', { 'video_url': rowData, 'loaded': true, 'from': 'home'})}
@@ -81,9 +79,6 @@ import {
     }
 
     render() {
-      console.log('oooooooooooooooooooooooooooooooooooooooooo');
-      console.log(firebase.auth());
-      console.log(firebase.auth().currentUser);
       return (
         <Container style={{backgroundColor: '#FFFFFF'}}>
           <Header style={{backgroundColor: '#F2F2F2'}}>

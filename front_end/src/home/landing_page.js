@@ -27,9 +27,7 @@ import {
     }
 
     componentDidMount() {
-      console.log('component did ounth inside hereee');
       /*firebase.auth().onAuthStateChanged((user) => {
-        console.log('7776666666666777666666666677766666666667776666666666');
         if (user) {
           this.setState({ loaded: true })
         } else {
@@ -39,7 +37,6 @@ import {
     }
 
     _getVideos() {
-        console.log('inside get videos value hereeeee');
         const options = { 
           noData: true,
           mediaType: 'video',
@@ -58,9 +55,6 @@ import {
     }
 
     render() {
-      console.log('inside landing page render fn heree');
-      console.log(firebase.auth());
-      console.log(firebase.auth().currentUser);
       return (
         <Container style={{backgroundColor: '#FFFFFF'}}>
             <Header style={{backgroundColor: '#F2F2F2'}}>

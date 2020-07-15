@@ -32,36 +32,23 @@ export default class created_videos_list extends Component {
     }
 
     componentWillMount() {
-        console.log('inside component will mount here going on  /////-------');
         console.log(firebase.auth());
         console.log(firebase.auth().currentUser);
     }
 
     _getData = async () => {
-        console.log('inside entering get data hereeeeee');
-        console.log(this.no_video_saved);
-        console.log(no_video_saved); 
-        console.log(firebase.auth());
-        console.log(firebase.auth().currentuser);
         let videoEmpty = false;
         var userID = firebase.auth().currentUser.uid;
         if (firebase.auth().currentUser) {
             let saved_value = [];
             try { 
                 saved_value = await AsyncStorage.getItem('@jm_video_urls:key');
-                console.log("inside try block");
-                console.log(saved_value);
-                console.log(JSON.parse(saved_value));
-                console.log(userID);
-//                console.log(JSON.parse(saved_value)[firebase.auth().currentuser.uid]);
                 if (saved_value && JSON.parse(saved_value)[userID] && JSON.parse(saved_value)[userID][0]) {
                 // We have data!!
                 //saved_value = JSON.parse(saved_value);
-                console.log('isnide 1');
                 saved_value = JSON.parse(saved_value);
                 //no_video_saved = false;
                 } else {
-                    console.log('inside 2');  
                     //  no_video_saved = true;
                     videoEmpty = true;
                     this.setState({loading: false, no_video_saved: true});
@@ -70,17 +57,11 @@ export default class created_videos_list extends Component {
                 // Error retrieving data
             }
             if (videoEmpty == false && saved_value[userID]) {
-                console.log('inside croseed false conditiion');                
-                console.log(firebase.auth().currentUser.uid);
-                console.log(saved_value);
-                console.log(userID);
                 this.saved_videos = saved_value[userID];
                 console.log(this.saved_videos);
                 this.setState({no_video_saved: false, loading: false});
             }    
         } else {   
-            console.log('entering else block hereeeeeeeee');
-            console.log(no_video_saved);
             this.setState({ loading: false, no_video_saved: true });
         }    
     }
@@ -97,7 +78,6 @@ export default class created_videos_list extends Component {
     }
 
     handleDeleteButtonTouch = async (videoIndex) => {
-        console.log('handle delete button touch here going on == ', videoIndex); 
         var saved_value = '';
         try {
             saved_value = await AsyncStorage.getItem('@jm_video_urls:key');
@@ -107,15 +87,10 @@ export default class created_videos_list extends Component {
         } 
         saved_value = JSON.parse(saved_value);
         //const filteredItems = items.slice(0, i).concat(items.slice(i + 1, items.length))
-        console.log('saved value is ==', saved_value);
-        console.log('firebase.auth.current user id == ', firebase.auth().currentUser.uid);
-        console.log(saved_value[firebase.auth().currentUser.uid]);
         let currentUserID = firebase.auth().currentUser.uid;
         saved_value[currentUserID] = saved_value[currentUserID].slice(0, videoIndex).concat(saved_value[currentUserID].slice(videoIndex + 1, saved_value[currentUserID].length));
-        console.log('after splice ==', saved_value[currentUserID]);
         try {
             await AsyncStorage.setItem('@jm_video_urls:key', JSON.stringify(saved_value));
-            console.log('after save here');
             this._getData();
             if (saved_value[currentUserID][0]) {
                 this.setState({no_video_saved: false, fileDeleted: true});
@@ -129,10 +104,8 @@ export default class created_videos_list extends Component {
     }
 
     handleError = (meta) => {
-        console.log('inside this handle error code hereeeeeeeee');
         const {error: {code}} = meta;
         let error = "Error occured during loafing video";
-        console.log(meta);
         switch (code) {
             case -118800: 
                 error = "Couldnt load video from URL";
@@ -141,8 +114,7 @@ export default class created_videos_list extends Component {
     }  
 
     onMorePress(meta) {
-        console.log('inside on more presss hereeeee');
-        console.log(meta);
+
     }
     
     play() {
@@ -155,31 +127,21 @@ export default class created_videos_list extends Component {
     }
 
     redirectToDetails(video_url, index) {
-      console.log('inside redirect to detailsssssssseerrrrrr');
       this.props.navigation.navigate('EditorScreen', { 'video_url': video_url, 'loaded': true, 'from': 'list', 'index': index})  
     }
 
     render() {
-            console.log(this.state.loading);
-            console.log(no_video_saved);
-            console.log('inside created video list render <>>');
-            console.log(this.props.navigation.getParam('from'));
             var from_param = this.props.navigation.getParam('from');
             if (from_param == 'edit-delete') {
                 from_param = '';
                 this._getData();                
             }
             //this._getData();
-            console.log('this.no video saved ==', this.state.no_video_saved);
-            console.log('this.state.loading ==', this.state.loading);
             if (this.saved_videos) {
                 console.log(this.saved_videos['url']);  
                  
             }
             // this.setState({fileDeleted: false});
-            console.log('RNFS Directory path going here ===');
-            console.log(this.saved_videos);
-            console.log(RNFS.DocumentDirectoryPath);
             //console.log(RNFetchBlob.fs.dirs.DocumentDir);
             const url = 'https://your-url.com/video.mp4'
             const logo = 'https://your-url.com/logo.png'
@@ -201,7 +163,6 @@ export default class created_videos_list extends Component {
             }
         
             if (this.state.loading === false && this.state.no_video_saved == false && this.saved_videos) {
-                console.log('inside 11111111111111111111');
                 //file:///Users/sahithyarajith/Library/Developer/CoreSimulator/Devices/171E6B72-A416-47C2-B16E-1516A8B7D3F7/data/Containers/Data/Application/96225561-7D1A-4E01-B626-2C399A1FAD1B/Documents/tglx9vMK6E_jnm.mp4
                 console.log(this.saved_videos);
                 return (
@@ -255,7 +216,6 @@ export default class created_videos_list extends Component {
                     </Container>
                 );
             } else if (!firebase.auth().currentUser || (this.state.loading === false && this.state.no_video_saved == true)) {
-                console.log('insnide 2222222222222222222222222222');
                 return ( 
                     <Container>
                         <Header style={{backgroundColor: '#CD5C5C'}}>
@@ -271,7 +231,6 @@ export default class created_videos_list extends Component {
                     </Container>    
                 );
             } else {
-                console.log('isnide 333333333333333333333333333333333');  
                 return ( 
                     <Container>
                         <Header style={{backgroundColor: '#CD5C5C'}}>

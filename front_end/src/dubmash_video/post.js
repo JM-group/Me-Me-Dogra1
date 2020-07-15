@@ -24,8 +24,6 @@ import {
 
     const createFormData = (videoUri, description) => {
         const data = new FormData();
-        console.log("video uri value going in iss ==");
-        console.log(videoUri);
         data.append('file', {
             name: "random.mov",
             uri: Platform.OS === 'android' ? videoUri : videoUri.replace('file://', ''),
@@ -177,14 +175,12 @@ import {
             }    
         }
         async postContent() {
-            console.log("inside post content here going onn hereee 111112222233333");
             var token_val = await AsyncStorage.getItem('@user_auth:token'), that = this, postJson = {};
             var savedValue = await AsyncStorage.getItem('@jm_video_urls:key');
             var userID = firebase.auth().currentUser.uid;
             var userVideos = JSON.parse(savedValue)[userID];
             var savedVideoURL = userVideos[userVideos.length - 1];
             //const formData = createFormData(videoURL, this.state.value);  
-            console.log("before appending formdata value here issss // ===", this.state.value); 
             const formData = createFormData(savedVideoURL, this.state.value);
             const config = {
                 method: 'POST',
@@ -195,21 +191,14 @@ import {
                 file: formData,
                 //desc: {"desc": this.state.value}
             };
-            console.log("final response here isss");
-            console.log(formData);
             await axios.post('http://70.51.251.63:3000/postMedia/'+token_val, formData, {
             }).then((response) => {
-                console.log("coming under response here going onnnn");
-                console.log(response);
                 postJson['path'] = response.data.path;
                 postJson['description'] = that.state.desc;
                 postJson['post_type'] = that.state.value;
-                console.log("post json value going here issssss");
-                console.log(postJson);
                 axios.post('http://70.51.251.63:3000/post/'+token_val,  postJson, {
                     //crossDomain: true
                 }).then((response) => {
-                    console.log("after receiving response value here isssssss");
                     console.log(response);
                 }, (error) => {
                     console.log(error);

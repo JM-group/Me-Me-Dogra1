@@ -39,7 +39,6 @@ export default class accounts extends Component {
     }
     
     componentWillMount() {
-      console.log("inside component will mount value heree going onnnn");
       this.loadUserData();
     }
 
@@ -48,30 +47,18 @@ export default class accounts extends Component {
     }
 
     _getData = async () => {
-      console.log('inside entering get data hereeeeee');
-      //console.log(this.no_video_saved);
-      //console.log(no_video_saved); 
-      console.log(firebase.auth());
-      console.log(firebase.auth().currentuser);
       let videoEmpty = false;
       var userID = firebase.auth().currentUser.uid;
       if (firebase.auth().currentUser) {
           let saved_value = [];
           try { 
               saved_value = await AsyncStorage.getItem('@jm_video_urls:key');
-              console.log("inside try block");
-              console.log(saved_value);
-              console.log(JSON.parse(saved_value));
-              console.log(userID);
-//                console.log(JSON.parse(saved_value)[firebase.auth().currentuser.uid]);
               if (saved_value && JSON.parse(saved_value)[userID] && JSON.parse(saved_value)[userID][0]) {
               // We have data!!
               //saved_value = JSON.parse(saved_value);
-              console.log('isnide 1');
               saved_value = JSON.parse(saved_value);
               //no_video_saved = false;
               } else {
-                  console.log('inside 2');  
                   //  no_video_saved = true;
                   videoEmpty = true;
                   this.setState({loading: false, no_video_saved: true});
@@ -80,31 +67,20 @@ export default class accounts extends Component {
               // Error retrieving data
           }
           if (videoEmpty == false && saved_value[userID]) {
-              console.log('inside croseed false conditiion');                
-              console.log(firebase.auth().currentUser.uid);
-              console.log(saved_value);
-              console.log(userID);
               this.saved_videos = saved_value[userID];
-              console.log(this.saved_videos);
               this.setState({no_video_saved: false, loading: false});
           }    
       } else {   
-          console.log('entering else block hereeeeeeeee');
-          console.log(no_video_saved);
           this.setState({ loading: false, no_video_saved: true });
       }    
     }
     
     async loadUserData() {
-      console.log('inside loadddd dataaaaaa');
       var token_val = await AsyncStorage.getItem('@user_auth:token');
-      console.log(token_val);
       //await axios.get('http://70.51.251.63/user/'+token_val, {
       await axios.get('http://70.51.251.63:3000/user/post/'+token_val, {
         crossDomain: true
       }).then((response) => {
-            console.log("inside load user data vaue hereee");
-            console.log(response);
             this.setState({
                firstName: response.data.first_name,
                lastName: response.data.last_name,
@@ -112,31 +88,19 @@ export default class accounts extends Component {
                postedVideos: response.data.postVal
             })
         }, (error) => {
-          console.log("insiideiiidei errorrrr");
           console.log(error);
         });  
     }
 
     render() {
-        console.log('inside accounts page insiiiiiiiiiiiiiiddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
-        console.log('this.state.photo URL ==', this.state.photoUrl);
-        console.log(this.saved_videos);
       //  console.log(this.state.photoUrl.length);
         var displayName = '', that = this;
-        console.log(firebase)
-        console.log(firebase.auth());
         if (firebase.auth().currentUser && firebase.auth().currentUser != null && firebase.auth().currentUser.displayName.length < 10) {
           displayName = firebase.auth().currentUser.displayName;
         }
-        console.log("saved_videos values are here eee ==");
-        console.log(this.saved_videos);
         if (!this.saved_videos) {
           this.saved_videos = [];
         }
-        console.log(this.state);
-        console.log("photo url value hereee isss ==", this.state.photoUrl);
-        console.log(this.state.postedVideos);
-        //console.log("length value iss ==", this.state.photoUrl.length);
         return (
           <Container style={{backgroundColor: '#FFFFFF'}}>
               <Header style={{backgroundColor: 'white'}}>
@@ -195,10 +159,6 @@ export default class accounts extends Component {
                   <View style={[styles.recentpostvideos, {top: 60}]} onPress={() => alert('hi hi hi 123')}>     
                         {
                           this.state.postedVideos.map(function(video_url, index) {
-                              console.log("video url value coming here iss ==");
-                              console.log(video_url);
-                              console.log(video_url.post_media[0]);
-                              console.log('http://70.51.251.63:3000/' + video_url.post_media[0]);
                               var videoVal = 'http://70.51.251.63:3000/' + video_url.post_media[0], description = video_url.description,
                               likeCount = video_url.likes_count && video_url.likes_count > 0? video_url.likes_count: 0;
                               return (
@@ -240,8 +200,6 @@ export default class accounts extends Component {
     }       
 
     loadProfilePic() {
-      console.log("inside load profile pic hereer d sajdasjdas");
-      console.log(this.state.photoUrl);
       if(this.state.photoUrl && this.state.photoUrl.length > 0) {
           return (
               <Image style={styles.avatar} source={{uri: "http://70.51.251.63:3000/" + this.state.photoUrl}}></Image>
@@ -254,7 +212,6 @@ export default class accounts extends Component {
     }
 
     settingsIconClick() {
-      console.log('inside settings icon click hereeeeee');
       this.props.navigation.navigate('UserAgrIndex');
     }
 
@@ -305,17 +262,12 @@ export default class accounts extends Component {
     async saveProfilePic(config) {
       console.log("inside async save profile pic value going on hereeeee");
       var token_val = await AsyncStorage.getItem('@user_auth:token');
-      console.log(token_val);
-      console.log('after token valueeeeee ocming hereeeee dsnfsdfnsdfjnsd');
-      //data.append('file', this.state.selectedFile)
-      console.log(config);
       //await axios.post('http://70.51.251.63/upload_profile_pic/'+token_val, config, {
       await axios.post('http://70.51.251.63:3000/upload_profile_pic/'+token_val, config, {  
         crossDomain: true
       }).then((response) => {
             console.log(response);
         }, (error) => {
-          console.log("insiideiiidei errorrrr");
           console.log(error);
        });
 
@@ -352,7 +304,6 @@ export default class accounts extends Component {
             const isSignedIn = await GoogleSignin.isSignedIn();
             console.log(isSignedIn);
             if (isSignedIn) {
-              console.log('if condition check inside hereeeeeeee');
               try {
                 await GoogleSignin.revokeAccess();
                 await GoogleSignin.signOut();
@@ -364,15 +315,7 @@ export default class accounts extends Component {
               }
             }
           }
-          console.log('after sign out doneee');
-          
-          console.log('3333444444');
         } 
-        console.log('before navigate after logout');
-        console.log(this.props.navigation);
-
-        console.log('response value goignngngngngngngngngngn hereeeeee isssssssss');
-        console.log(token_val);
         
         //await axios.post('http://70.51.251.63/logout/'+token_val, {
         
@@ -382,23 +325,15 @@ export default class accounts extends Component {
         }).then((response) => {
               console.log(response);
         }, (error) => {
-          console.log("insiideiiidei errorrrr");
           console.log(error);
         });
 
        
         this.afterSignOut = true;
         //this.props.navigation.replace('SigninForm');
-        console.log('111111');
-        //this.props.navigation.navigate('SigninForm');
-        console.log('after reload here');
     }
     
     async signOutRedirect() {
-        console.log('inside signout redirect here');
-        console.log(this.state.logged_in);
-        console.log('after signout redirect ....');
-        console.log(this.state.logged_in);
         try {
           AsyncStorage.removeItem('@user_auth:token');
         }

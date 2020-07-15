@@ -53,13 +53,11 @@ export default class editAccDetails extends Component {
               countryCode: response.data.country_code
             })
         }, (error) => {
-          console.log("insiideiiidei errorrrr");
           console.log(error);
         });  
     }
 
     headerListIcon() {
-      console.log('inside header icon here ==');
           // <Icon name='arrow-left' size={20} color="#FFF" onPress={() => this.props.navigation.navigate('CreatedVideosList')}/> 
           //this.props.navigation.pop();
           return (
@@ -68,8 +66,6 @@ export default class editAccDetails extends Component {
     }
 
     loadProfilePic() {
-      console.log("inside load profile pic hereer d sajdasjdas");
-      console.log(this.state.photoUrl);
       if(this.state.photoUrl && this.state.photoUrl.length > 0) {
           return (
               <Image style={styles.avatar} source={{uri: "http://70.51.251.63:3000/" + this.state.photoUrl}}></Image>
@@ -85,13 +81,7 @@ export default class editAccDetails extends Component {
         from = this.props.navigation.getParam('from');
         var dob = undefined;
         if (this.state.dateOfBirth) {
-          console.log("inside heree");
-          console.log("this.state.dateofbirth == <<<<>>>>> ==", this.state.dateOfBirth);
           dob = new Date(this.state.dateOfBirth);
-          console.log(dob.getDate() + "-" + dob.getMonth() + "-" + dob.getFullYear())
-          console.log("!111111111111111111111111111111111111111111111111");
-          //console.log(Moment(this.state.dateOfBirth).format('d MM YYYY'))
-          //console.log(Moment(this.state.dateOfBirth).format('d-MM-YYYY').toString())
         }
         return (
                 <Container style={{backgroundColor: '#FFFFFF'}}>
@@ -184,10 +174,7 @@ export default class editAccDetails extends Component {
                                   withFilter 
                                   withEmoji
                                   onSelect={(value) => {
-                                            console.log(" ////////////// <<<>>> ==", value, " --- value ==", value.name)
                                             var ctr_name = value.name
-                                            console.log(countries);
-                                            console.log("val check here ==", countries.ctr_name);
                                             this.setState({countryCode: value.cca2, country: value.name})
                                           }}
                                 />
@@ -224,9 +211,6 @@ export default class editAccDetails extends Component {
     }
 
     afterSavingAccDetails = async() => {
-      console.log("inside afre saving accoutn details fn hereeee");
-      console.log(this.state);
-      console.log('this.state.dob ==', this.state.dateOfBirth);
       var token_val = await AsyncStorage.getItem('@user_auth:token');
       
       //await axios.put('http://70.51.251.63/user/'+token_val, {
@@ -240,7 +224,6 @@ export default class editAccDetails extends Component {
       },{
         crossDomain: true
       }).then((response) => {
-          console.log("333333333");
             console.log(response);
       }, (error) => {
         console.log(error);
@@ -255,7 +238,6 @@ export default class editAccDetails extends Component {
     }
 
     loadImages() {
-      //      console.log("load images here going onnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
         var options = {
             title: 'Select Image',
             storageOptions: {
@@ -265,7 +247,6 @@ export default class editAccDetails extends Component {
         };
   
         ImagePicker.showImagePicker(options, (response) => {
-            console.log('Response = ', response);
             if (response.didCancel) {
               console.log('User cancelled image picker');
             }else if (response.error) {
@@ -298,19 +279,14 @@ export default class editAccDetails extends Component {
       }
   
       async saveProfilePic(config) {
-        console.log("inside async save profile pic value going on hereeeee");
         var token_val = await AsyncStorage.getItem('@user_auth:token');
-        console.log(token_val);
-        console.log('after token valueeeeee ocming hereeeee dsnfsdfnsdfjnsd');
         //data.append('file', this.state.selectedFile)
-        console.log(config);
         //await axios.post('http://70.51.251.63/upload_profile_pic/'+token_val, config, {
           await axios.post('http://70.51.251.63:3000/upload_profile_pic/'+token_val, config, {  
           crossDomain: true
         }).then((response) => {
               console.log(response);
           }, (error) => {
-            console.log("insiideiiidei errorrrr");
             console.log(error);
          });
   

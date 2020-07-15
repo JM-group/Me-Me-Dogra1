@@ -37,9 +37,6 @@ import Post from './post'
   let nFrom = "" //This value denotes from where we navigated from  
   export default class editor extends Component {  
   constructor() {
-  //  console.log('/////////////inside dubmash constructor');
-  //  console.log(Post);
-  //  console.log(Post.Post);
       super();
       this.openPostPage = this.openPostPage.bind(this); 
       this.handleDoneButtonTouch = this.handleDoneButtonTouch.bind(this);
@@ -76,28 +73,15 @@ import Post from './post'
   };
 
   componentWillMount() {
-  //  console.log('99999999999999999999999999999999999999999999999999999999999999999999');
-  //  console.log(firebase.auth());
-  //  console.log(firebase.auth().currentUser);
-  //  console.log("000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
-    //console.log(navigation.getParam('from'));
   }
 
   componentDidMount() {
-    // alert(this.state.ismuted.toString() + "Second Screen here");
-  //  console.log('888888888888888888888888888888888888888888888888888888');
-  //  console.log(firebase.auth());
-  //  console.log(firebase.auth().currentUser);
     AppState.addEventListener('change', this._handleAppStateChange);    
     this.setState({ paused: false, muted: false }); 
   }
  
   componentDidUpdate() {
-  //  console.log('inside component did update  //// here = '+ this.state.videoEnded + '  dss  '+ this.state.paused);
-  //  console.log(this.state.videoStats);
-  //  console.log(this.state);
     if (this.state.videoEnded && this.state.paused) {
-  //    console.log('inside seek 000 hereeeeeeee');
       this.player.seek(0);
       //this.seekAudioToBeginning();
     } /* else if (this.state.videoStats == 2) {
@@ -113,9 +97,6 @@ import Post from './post'
   }
 
   _handleAppStateChange = (nextAppState) => {
-  //  console.log('inside handle app state changeeeeeeeeee');
-  //  console.log(nextAppState);
-  //  console.log(this.state.appState);
     if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
   //    console.log('App has come to the foreground!')
       this.setState({appState: nextAppState});
@@ -127,8 +108,6 @@ import Post from './post'
   }
 
   showAfterSaveAlert() {
-  //  console.log('inside show after saveeeeeeeeeeeeeeeeeeeeeeeeeeeeeee alert hereeeeeingggg');
-  //  console.log('nFrom ==', nFrom);
     if (nFrom == 'social') {
       Alert.alert(
         'Do you want to share this video with your friends?',
@@ -196,43 +175,28 @@ import Post from './post'
       //  ismuted: !state.ismuted
       };
     });
-  //  console.log('3333333333333333333');
-  //  console.log(this.state.videoEnded);
-  //  console.log(this.state.progress);
-  //  console.log(this.state.paused);
     if (this.state.videoEnded && this.state.paused) {
-  //    console.log('inside here 111111');
       this.setState({videoEnded: false});
       this.startAudioAgain();
     } else if (!this.state.paused) {
-  //    console.log('else pause block here 2222222');
       this.pauseAudioPlayer();
     } else {
-  //    console.log('audio start else block here going on 3333333333');
       this.audioStart();
     }
   };
 
   pauseAudioPlayer = async () => {
-  //  console.log('inside pause audio player async');
-  //  console.log(this.state.progress);
     await audioRecorderPlayer.pausePlayer();
-  //  console.log(this.state.progress);
-  //  console.log('after awaited here');
   }
 
   audioStart = async () => {
-  //  console.log('inside audio start block here');
     await audioRecorderPlayer.startPlayer();
     if (this.state.progressAfterPause > 0) {
-  //    console.log('inside seek 1 here');
       audioRecorderPlayer.seekToPlayer(this.state.progressAfterPause * 1000);
     } else {
-  //    console.log('inside seek 2 here going on');
       audioRecorderPlayer.seekToPlayer(this.state.progress * 1000);
     } 
     this.setState({progressAfterPause: 0});
-       //  console.log('after startibg ghere');
   }
 
   handleProgressPress = e => {
@@ -245,27 +209,18 @@ import Post from './post'
     this.setState({videoEnded: false, progressAfterPause: progress});
   //  console.log('just set the seekbar timing =', progress);
     const progress_millisec = progress * 1000;
-  //  console.log('1000 muliii', progress_millisec);
-  //  console.log(this.state.audioDurationMilli);
-  //  console.log('////////');
-  //  console.log(this.state.paused);
     if (this.state.audioDurationMilli > progress_millisec) {
-  //      console.log('inside hereeeeeee');
         //audioRecorderPlayer.startPlayer(); 
         audioRecorderPlayer.seekToPlayer(progress_millisec);
-  //      console.log('setted the value according to duration here');
       } else {
         //audioRecorderPlayer.pausePlayer();
-  //      console.log('just like a health check here');
       }  
     };
 
   handleProgress = progress => {
-  //  console.log('inside handle progress');
     this.setState({
       progress: progress.currentTime / this.state.duration,
     });
-  //  console.log(this.state.progress);
   };
 
   handleEnd = () => {
@@ -288,10 +243,7 @@ import Post from './post'
   };
   
   onStartPlay = async () => {
-  //  console.log('inside start playyyyyyyyyyyyyyyyyyyy');
-  //  console.log(this.props.navigation.state.routeName);
     const msg = await audioRecorderPlayer.startPlayer();
-  //  console.log(this.props.navigation.state.routeName);
     audioRecorderPlayer.addPlayBackListener((e) => {
       if (e.current_position === e.duration) {
         this.seekAudioToBeginning();
@@ -323,29 +275,18 @@ import Post from './post'
   }
 
   render() {
-    console.log("//////////////////////////////////////////////////////////<<<<<>>>>>>><<<>>>");
     const { width } = Dimensions.get("window");
     const height = width * 0.5625;
     const playWidth = (this.state.currentPositionSec / this.state.currentDurationSec) * (Dimensions.get('window') - 56 * 12);
     const { navigation } = this.props;
     let audio = navigation.getParam('audio');
     audio_source = audio;
-    //console.log('inside dubmash rendererrrrrrrrrrrrrrrrrrrr');
-    //console.log(firebase.auth().currentUser);
-    //console.log(audio_source);
     let video = navigation.getParam('video_url');
     nFrom = navigation.getParam('nFrom');
-    //console.log("n from <<<<<>>>>> // ==", nFrom);
-    //console.log(video);
     video_url = video;
     audio_url = audio;
-    //console.log(audio_url);
-    //console.log(video_url);
     audio_player_source = navigation.getParam('audio_player');
-    //console.log('after audio player souce inside hereeee');
-    //console.log(audio_player_source);
     // let video_shaping = this.videoShaping(video, audio);   
-    //console.log(this.state);
     return (
         <Container onBlur={this._onBlur} style={{backgroundColor: '#FFFFFF'}}>
           <NavigationEvents

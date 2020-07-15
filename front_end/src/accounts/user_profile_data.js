@@ -40,12 +40,8 @@ export default class userProfileData extends Component {
     async loadUserData() {
       var token_val = await AsyncStorage.getItem('@user_auth:token');
       //crossDomain: true
-      console.log("inside loaduser data before ajax call here going onnnnnnn");
-      console.log("before load user data 41 == // ", token_val);
       //await axios.get('http://70.51.251.63/user/'+token_val, {crossDomain: true}).then((response) => {
       await axios.get('http://70.51.251.63:3000/user/'+token_val, {crossDomain: true}).then((response) => {
-          console.log("value setting hereeee ////////////////////////////////////////");
-          console.log(response);
           this.setState({
               firstName: response.data.first_name,
               lastName: response.data.last_name,
@@ -58,13 +54,11 @@ export default class userProfileData extends Component {
               countryCode: this.state.country_code
           })
       }, (error) => {
-        console.log("insiideiiidei errorrrr");
         console.log(error);
       });  
     }
 
     headerListIcon() {
-      console.log('inside header icon here ==');
       if (from == 'dubmash') {  
         return(
           // <Icon name='arrow-left' size={20} color="#FFF" onPress={() => this.props.navigation.navigate('CreatedVideosList')}/> 
@@ -82,8 +76,6 @@ export default class userProfileData extends Component {
     }
 
     loadProfilePic() {
-        console.log("inside load profile pic hereer d sajdasjdas");
-        console.log(this.state.photoUrl);
         if(this.state.photoUrl && this.state.photoUrl.length > 0) {
             return (
                 <Image style={styles.avatar} source={{uri: "http://70.51.251.63:3000/" + this.state.photoUrl}}></Image>
@@ -99,20 +91,13 @@ export default class userProfileData extends Component {
         from = this.props.navigation.getParam('from');
         var dob = undefined;
         //"/Users/admin/Desktop/social_media/" + 
-        console.log("value goiing inside heree isssss 1231221333123123123");
-        console.log(this.state);
-        console.log(this.state.photoUrl);
-        console.log( "/Users/admin/Desktop/social_media/" + this.state.photoUrl + ".jpg")
         if (this.state.photoUrl) {
             console.log(this.state.photoUrl.length)
         }
         //console.log(this.state.photoUrl.length);
-        console.log("before value set here ==", this.state.dateOfBirth);
         if (this.state.dateOfBirth) {
-          console.log("inside heree");
           dob = new Date(this.state.dateOfBirth);
           console.log(dob.getDate() + "-" + dob.getMonth() + "-" + dob.getFullYear())
-          console.log("!111111111111111111111111111111111111111111111111");
          // console.log(Moment(this.state.dateOfBirth).format('d MM YYYY'))
          // console.log(Moment(this.state.dateOfBirth).format('d-MM-YYYY').toString())
         }
